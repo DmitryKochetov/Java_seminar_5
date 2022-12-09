@@ -22,11 +22,12 @@ public class task4 {
             viciousCircle++;
             int randomX = ThreadLocalRandom.current().nextInt(0, 8);
             int randomY = ThreadLocalRandom.current().nextInt(0, 8);
-            if ((!isunderHit(board, randomX, randomY)) && (board[randomX][randomY] != 1)) {
+            if ((!isunderHit(board, randomX, randomY)) && (board[randomX][randomY] < 1)) {
+                // queensCount++;
                 board[randomX][randomY] = queensCount;
                 queensCount++;
             }
-            if (viciousCircle > 10000) {
+            if (viciousCircle > 100000) {
                 System.out.println("Vicious circle ");
                 break;
             }
