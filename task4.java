@@ -2,6 +2,7 @@
 
 package DZ;
 
+import java.util.Arrays;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class task4 {
@@ -27,9 +28,15 @@ public class task4 {
                 board[randomX][randomY] = queensCount;
                 queensCount++;
             }
-            if (viciousCircle > 100000) {
-                System.out.println("Vicious circle ");
-                break;
+            if (viciousCircle > 10000) {
+                // System.out.println("Vicious circle ");
+                for (int i = 0; i < 8; i++) {
+                    for (int j = 0; j < 8; j++) {
+                        board[i][j] = 0;
+                    }
+                }
+                viciousCircle = 0;
+                queensCount = 1;
             }
         }
         for (int i = 0; i < 8; i++) {
