@@ -9,6 +9,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class task2 {
     public static void main(String[] args) throws IOException {
@@ -51,10 +52,22 @@ public class task2 {
                 uniqueNames.put(item.getValue(), ++value);
             }
         }
+
+
+
         System.out.println("\nКоличество повторяющихся имён в записях файла base.txt:");
         for (String key : uniqueNames.keySet()) {
-            System.out.println(key + ":" + uniqueNames.get(key));
+        System.out.println(key + ":" + uniqueNames.get(key));
         }
+
+
+        System.out.println("\nКоличество повторяющихся имён в записях файла base.txt по убыванию:");
+        
+        Map<String, Integer> sortedMapReverseOrder = uniqueNames.entrySet().stream()
+                .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
+        System.out.println(sortedMapReverseOrder);
+
 
     }
 }
