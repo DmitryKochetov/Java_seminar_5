@@ -15,10 +15,10 @@ public class task4 {
         // System.out.println();
         // }
 
-        int queensCount = 0;
+        int queensCount = 1;
         int viciousCircle = 0;
 
-        while (queensCount < 8) {
+        while (queensCount < 9) {
             viciousCircle++;
             int randomX = ThreadLocalRandom.current().nextInt(0, 8);
             int randomY = ThreadLocalRandom.current().nextInt(0, 8);
